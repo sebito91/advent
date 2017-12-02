@@ -23,4 +23,9 @@ func main() {
 		}
 	}
 
+	for _, x := range []string{"1212", "1221", "123425", "123123", "12131415", str} {
+		if err := one.DayOnePartTwo(x); err != nil {
+			fmt.Printf("failed DayOnePartTwo (%s)! %+v\n", x, err)
+		}
+	}
 }
