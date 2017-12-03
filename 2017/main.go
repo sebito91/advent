@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sebito91/advent/2017/two"
+	"github.com/sebito91/advent/2017/three"
 )
 
 // 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the second digit and the third digit (2) matches the fourth digit.
@@ -26,13 +26,17 @@ func main() {
 	//			fmt.Printf("failed DayOnePartTwo (%s)! %+v\n", x, err)
 	//		}
 	//	}
+	//
+	//	if err := two.DayTwoPartOne(keys); err != nil {
+	//		fmt.Printf("error in DayTwoPartOne: %+v\n", err)
+	//	}
+	//
+	//	if err := two.DayTwoPartTwo(keys); err != nil {
+	//		fmt.Printf("error in DayTwoPartTwo: %+v\n", err)
+	//	}
 
-	if err := two.DayTwoPartOne(keys); err != nil {
-		fmt.Printf("error in DayTwoPartOne: %+v\n", err)
-	}
-
-	if err := two.DayTwoPartTwo(keys); err != nil {
-		fmt.Printf("error in DayTwoPartTwo: %+v\n", err)
+	if err := three.DayThreePartOne(347991); err != nil {
+		fmt.Printf("error in DayThreePartOne: %+v\n", err)
 	}
 }
 
