@@ -19,3 +19,9 @@ func DayThreePartOne(in int64) error {
 	fmt.Printf("DayThreePartOne checksum is: %d\n", (sq+1)-pos)
 	return nil
 }
+
+// DayThreePartTwo of AoC 2017
+func DayThreePartTwo(in int64) error {
+	fmt.Printf("DayThreePartTwo checksum is: %d\n", in)
+	return nil
+}
