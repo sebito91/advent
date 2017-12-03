@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 
-	"github.com/sebito91/advent/2017/one"
 	"github.com/sebito91/advent/2017/two"
 )
 
@@ -16,17 +15,17 @@ import (
 func main() {
 	fmt.Printf("Running each of the 2017 Advent of Code challenges...\n")
 
-	for _, x := range []string{"1122", "1111", "1234", "91212129", str} {
-		if err := one.DayOne(x); err != nil {
-			fmt.Printf("failed DayOne (%s)! %+v\n", x, err)
-		}
-	}
-
-	for _, x := range []string{"1212", "1221", "123425", "123123", "12131415", str} {
-		if err := one.DayOnePartTwo(x); err != nil {
-			fmt.Printf("failed DayOnePartTwo (%s)! %+v\n", x, err)
-		}
-	}
+	//	for _, x := range []string{"1122", "1111", "1234", "91212129", str} {
+	//		if err := one.DayOne(x); err != nil {
+	//			fmt.Printf("failed DayOne (%s)! %+v\n", x, err)
+	//		}
+	//	}
+	//
+	//	for _, x := range []string{"1212", "1221", "123425", "123123", "12131415", str} {
+	//		if err := one.DayOnePartTwo(x); err != nil {
+	//			fmt.Printf("failed DayOnePartTwo (%s)! %+v\n", x, err)
+	//		}
+	//	}
 
 	if err := two.DayTwoPartOne(keys); err != nil {
 		fmt.Printf("error in DayTwoPartOne: %+v\n", err)

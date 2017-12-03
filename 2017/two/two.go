@@ -7,8 +7,8 @@ func DayTwoPartOne(in [][]int) error {
 	var sum int
 
 	for _, x := range in {
-		var min int
-		var max int
+		var min = x[0]
+		var max = min
 
 		for _, y := range x {
 			switch {
@@ -19,7 +19,7 @@ func DayTwoPartOne(in [][]int) error {
 			}
 		}
 		sum += (max - min)
-		fmt.Printf("DEBUG -- diff: %d, sum: %d\n", (max - min), sum)
+		fmt.Printf("DEBUG -- min: %d, max: %d, diff: %d, sum: %d\n", min, max, (max - min), sum)
 	}
 
 	fmt.Printf("checksum is: %d\n", sum)
