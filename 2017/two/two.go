@@ -19,7 +19,6 @@ func DayTwoPartOne(in [][]int) error {
 			}
 		}
 		sum += (max - min)
-		fmt.Printf("DEBUG -- min: %d, max: %d, diff: %d, sum: %d\n", min, max, (max - min), sum)
 	}
 
 	fmt.Printf("checksum is: %d\n", sum)
