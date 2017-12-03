@@ -30,6 +30,10 @@ func main() {
 	if err := two.DayTwoPartOne(keys); err != nil {
 		fmt.Printf("error in DayTwoPartOne: %+v\n", err)
 	}
+
+	if err := two.DayTwoPartTwo(keys); err != nil {
+		fmt.Printf("error in DayTwoPartTwo: %+v\n", err)
+	}
 }
 
 // DayTwo key
