@@ -13,17 +13,70 @@ const (
 )
 
 // DayThreePartOne of AoC 2017
-func DayThreePartOne(in int64) error {
-	// lowest square <= in
-	sq := int64(math.Floor(math.Sqrt(float64(in))))
+func DayThreePartOne(in int) error {
+	sq := int(math.Ceil(math.Sqrt(float64(in))) + 1)
+	if sq < 10 {
+		sq = 10
+	}
 
-	// next ring of numbers in square outside of lowest
-	nr := (sq + 1) * 2
+	var table = make([][]int, sq)
 
-	// number of spaces left of next square endpoint
-	pos := nr - (in - sq*sq)
+	for i := 0; i < sq; i++ {
+		table[i] = make([]int, sq)
+	}
 
-	fmt.Printf("DayThreePartOne checksum is: %d\n", (sq+1)-pos)
+	x := sq / 2
+	y := sq / 2
+	step := 1
+	table[y][x] = 1 // center
+
+	dir := right
+
+	for {
+		if step == in {
+			break
+		}
+		step++
+
+		switch dir {
+		case right:
+			x++
+			table[y][x] = step
+
+			if table[y-1][x] == 0 {
+				dir = up
+			}
+
+		case left:
+			x--
+			table[y][x] = step
+
+			if table[y+1][x] == 0 {
+				dir = down
+			}
+
+		case up:
+			y--
+			table[y][x] = step
+
+			if table[y][x-1] == 0 {
+				dir = left
+			}
+
+		case down:
+			y++
+			table[y][x] = step
+
+			if table[y][x+1] == 0 {
+				dir = right
+			}
+		}
+		//		printTable(table)
+		//		fmt.Printf("y: %d, x: %d, dir: %d, step: %d\n", y, x, dir, step)
+	}
+
+	diff := (math.Abs(float64((x - (sq / 2)))) + math.Abs(float64((y - (sq / 2)))))
+	fmt.Printf("DayThreePartOne checksum is: %d, %0.0f\n", in, diff)
 	return nil
 }
 
@@ -45,6 +98,9 @@ func DayThreePartOne(in int64) error {
 // DayThreePartTwo of AoC 2017
 func DayThreePartTwo(in int) error {
 	sq := int(math.Ceil(math.Sqrt(float64(in))))
+	if sq < 10 {
+		sq = 10
+	}
 	var table = make([][]int, sq)
 	var sum int
 
@@ -54,7 +110,7 @@ func DayThreePartTwo(in int) error {
 
 	x := sq / 2
 	y := sq / 2
-	ring, step := 1, 1
+	step := 1
 	table[y][x] = 1 // center
 	//	printTable(table)
 
@@ -73,7 +129,6 @@ func DayThreePartTwo(in int) error {
 			table[y][x] = sum
 
 			if table[y-1][x] == 0 {
-				ring++
 				dir = up
 			}
 
@@ -109,7 +164,7 @@ func DayThreePartTwo(in int) error {
 		}
 		step++
 		//		printTable(table)
-		//		fmt.Printf("sum is: %d, y: %d, x: %d, dir: %d, ring: %d, step: %d\n", sum, y, x, dir, ring, step)
+		//		fmt.Printf("sum is: %d, y: %d, x: %d, dir: %d, step: %d\n", sum, y, x, dir, step)
 	}
 
 	fmt.Printf("DayThreePartTwo checksum is: %d, %d\n", in, sum)

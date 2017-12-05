@@ -43,7 +43,7 @@ func main() {
 	//
 	//fmt.Printf("*********************************************\n")
 
-	for _, x := range []int64{1, 12, 23, 1024, 347991} {
+	for _, x := range []int{1, 12, 23, 1024, 347991} {
 		if err := three.DayThreePartOne(x); err != nil {
 			fmt.Printf("error in DayThreePartOne: %+v\n", err)
 		}
@@ -51,9 +51,10 @@ func main() {
 
 	fmt.Printf("*********************************************\n")
 
-	if err := three.DayThreePartTwo(347991); err != nil {
-		//	if err := three.DayThreePartTwo(1024); err != nil {
-		fmt.Printf("error in DayThreePartTwo: %+v\n", err)
+	for _, x := range []int{1, 10, 25, 806, 1024, 347991} {
+		if err := three.DayThreePartTwo(x); err != nil {
+			fmt.Printf("error in DayThreePartTwo: %+v\n", err)
+		}
 	}
 }
 
