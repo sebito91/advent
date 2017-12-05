@@ -43,13 +43,16 @@ func main() {
 	//
 	//fmt.Printf("*********************************************\n")
 
-	if err := three.DayThreePartOne(347991); err != nil {
-		fmt.Printf("error in DayThreePartOne: %+v\n", err)
+	for _, x := range []int64{1, 12, 23, 1024, 347991} {
+		if err := three.DayThreePartOne(x); err != nil {
+			fmt.Printf("error in DayThreePartOne: %+v\n", err)
+		}
 	}
 
 	fmt.Printf("*********************************************\n")
 
 	if err := three.DayThreePartTwo(347991); err != nil {
+		//	if err := three.DayThreePartTwo(1024); err != nil {
 		fmt.Printf("error in DayThreePartTwo: %+v\n", err)
 	}
 }
