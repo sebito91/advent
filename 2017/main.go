@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sebito91/advent/2017/three"
+	"github.com/sebito91/advent/2017/four"
 )
 
 // 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the second digit and the third digit (2) matches the fourth digit.
@@ -42,19 +42,23 @@ func main() {
 	//	}
 	//
 	//fmt.Printf("*********************************************\n")
+	//
+	//	for _, x := range []int{1, 12, 23, 1024, 347991} {
+	//		if err := three.DayThreePartOne(x); err != nil {
+	//			fmt.Printf("error in DayThreePartOne: %+v\n", err)
+	//		}
+	//	}
+	//
+	//	fmt.Printf("*********************************************\n")
+	//
+	//	for _, x := range []int{1, 10, 25, 806, 1024, 347991} {
+	//		if err := three.DayThreePartTwo(x); err != nil {
+	//			fmt.Printf("error in DayThreePartTwo: %+v\n", err)
+	//		}
+	//	}
 
-	for _, x := range []int{1, 12, 23, 1024, 347991} {
-		if err := three.DayThreePartOne(x); err != nil {
-			fmt.Printf("error in DayThreePartOne: %+v\n", err)
-		}
-	}
-
-	fmt.Printf("*********************************************\n")
-
-	for _, x := range []int{1, 10, 25, 806, 1024, 347991} {
-		if err := three.DayThreePartTwo(x); err != nil {
-			fmt.Printf("error in DayThreePartTwo: %+v\n", err)
-		}
+	if err := four.DayFourPartOne(); err != nil {
+		fmt.Printf("error in DayFourPartOne: %+v\n", err)
 	}
 }
 
