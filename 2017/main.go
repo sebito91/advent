@@ -21,6 +21,12 @@ func main() {
 		fmt.Printf("error in DaySixPartOne: %+v\n", err)
 	}
 
+	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
+
+	if err := six.DaySixPartTwo(); err != nil {
+		fmt.Printf("error in DaySixPartTwo: %+v\n", err)
+	}
+
 	//	fmt.Printf("*****************DAY FIVE PART ONE********************\n")
 	//
 	//	if err := five.DayFivePartOne(); err != nil {
