@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sebito91/advent/2017/six"
+	"github.com/sebito91/advent/2017/seven"
 )
 
 // 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the second digit and the third digit (2) matches the fourth digit.
@@ -15,17 +15,29 @@ import (
 func main() {
 	fmt.Printf("Running each of the 2017 Advent of Code challenges...\n")
 
-	fmt.Printf("*****************DAY SIX PART ONE*********************\n")
+	fmt.Printf("*****************DAY SEVEN PART ONE*********************\n")
 
-	if err := six.DaySixPartOne(); err != nil {
-		fmt.Printf("error in DaySixPartOne: %+v\n", err)
+	if err := seven.DaySevenPartOne(); err != nil {
+		fmt.Printf("error in DaySevenPartOne: %+v\n", err)
 	}
 
-	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
-
-	if err := six.DaySixPartTwo(); err != nil {
-		fmt.Printf("error in DaySixPartTwo: %+v\n", err)
-	}
+	//	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
+	//
+	//	if err := six.DaySixPartTwo(); err != nil {
+	//		fmt.Printf("error in DaySixPartTwo: %+v\n", err)
+	//	}
+	//
+	//	fmt.Printf("*****************DAY SIX PART ONE*********************\n")
+	//
+	//	if err := six.DaySixPartOne(); err != nil {
+	//		fmt.Printf("error in DaySixPartOne: %+v\n", err)
+	//	}
+	//
+	//	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
+	//
+	//	if err := six.DaySixPartTwo(); err != nil {
+	//		fmt.Printf("error in DaySixPartTwo: %+v\n", err)
+	//	}
 
 	//	fmt.Printf("*****************DAY FIVE PART ONE********************\n")
 	//
