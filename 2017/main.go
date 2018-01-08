@@ -17,9 +17,11 @@ func main() {
 
 	fmt.Printf("*****************DAY SEVEN PART ONE*********************\n")
 
-	if err := seven.DaySevenPartOne(); err != nil {
-		fmt.Printf("error in DaySevenPartOne: %+v\n", err)
-	}
+	fmt.Printf("codec in DaySevenPartOne: %s\n", seven.DaySevenPartOne())
+
+	fmt.Printf("*****************DAY SEVEN PART TWO*********************\n")
+
+	fmt.Printf("codec in DaySevenPartTwo: %d\n", seven.DaySevenPartTwo())
 
 	//	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
 	//

@@ -1,19 +1,20 @@
 package seven
 
 import (
-	"fmt"
 	"regexp"
 	"strconv"
 	"strings"
 )
 
+// Disk is the default struct
 type Disk struct {
 	Name   string
 	Weight int
-	Others string
+	Others []string
 }
 
 var re = regexp.MustCompile(`([a-z]+) \(([0-9]+)\)\s*[-,>,\s]*(.*)*`)
+var maps = make(map[string]Disk)
 
 func makeDisk() []Disk {
 	elems := make([]Disk, 1100)
@@ -34,10 +35,11 @@ func makeDisk() []Disk {
 			Weight: val,
 		}
 		if len(elem) == 4 {
-			d.Others = elem[3]
+			d.Others = strings.Split(elem[3], ", ")
 		}
 
 		elems[c] = d
+		maps[d.Name] = d
 		c++
 	}
 
@@ -45,16 +47,89 @@ func makeDisk() []Disk {
 }
 
 // DaySevenPartOne of AoC '17
-func DaySevenPartOne() error {
-	for id, x := range makeDisk() {
+func DaySevenPartOne() string {
+	for _, x := range makeDisk() {
 		if strings.Count(input, x.Name) < 2 {
-			fmt.Printf("id: %d, name: %s, weight: %d, others: %s\n", id, x.Name, x.Weight, x.Others)
+			return x.Name
 		}
 	}
 
-	return nil
+	return ""
 }
 
+// fetchSum is a helper
+func fetchSum(start string) (sum int, ok bool) {
+	if _, ok := maps[start]; !ok {
+		return 0, true
+	}
+
+	val := maps[start]
+
+	var d []int
+
+	sum += val.Weight
+	for _, x := range val.Others {
+		z, ok := fetchSum(maps[x].Name)
+		if !ok {
+			return z, false
+		}
+
+		d = append(d, z)
+	}
+
+	var max, min int
+	var inner = make(map[int]int)
+
+	for id, x := range d {
+		inner[x]++
+
+		if x < d[min] {
+			min = id
+		} else if x > d[max] {
+			max = id
+		}
+	}
+
+	if min != max {
+		if inner[d[max]] == 1 {
+			return maps[val.Others[max]].Weight - (d[max] - d[min]), false
+		}
+
+		return maps[val.Others[min]].Weight - (d[max] - d[min]), false
+	}
+
+	for _, x := range d {
+		sum += x
+	}
+
+	return sum, true
+}
+
+// DaySevenPartTwo of AoC '17
+func DaySevenPartTwo() int {
+	start := DaySevenPartOne()
+
+	val, _ := fetchSum(start)
+	return val
+}
+
+//var input = `
+//pbga (66)
+//xhth (57)
+//ebii (61)
+//havc (66)
+//ktlj (57)
+//fwft (72) -> ktlj, cntj, xhth
+//qoyq (66)
+//padx (45) -> pbga, havc, qoyq
+//tknk (41) -> ugml, padx, fwft
+//jptl (61)
+//ugml (68) -> gyxo, ebii, jptl
+//gyxo (61)
+//cntj (57)
+//`
+
+//
 var input = `
 hndzyx (28)
 kdelzk (399)
