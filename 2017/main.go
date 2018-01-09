@@ -20,6 +20,11 @@ func main() {
 	id, val := eight.DayEightPartOne()
 	fmt.Printf("codec in DayEightPartOne: %s, %d\n", id, val)
 
+	fmt.Printf("*****************DAY EIGHT PART TWO*********************\n")
+
+	id, val = eight.DayEightPartTwo()
+	fmt.Printf("codec in DayEightPartTwo: %s, %d\n", id, val)
+
 	//
 	//	fmt.Printf("*****************DAY SEVEN PART ONE*********************\n")
 	//

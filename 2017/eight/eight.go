@@ -42,6 +42,17 @@ func helper(reg string, val, op int) {
 	maps[reg] -= val
 }
 
+func getMax() (id string, max int) {
+	for k, v := range maps {
+		if v > max {
+			max = v
+			id = k
+		}
+	}
+
+	return id, max
+}
+
 // DayEightPartOne of AoC '17
 func DayEightPartOne() (id string, max int) {
 	elems := parseInput()
@@ -75,10 +86,47 @@ func DayEightPartOne() (id string, max int) {
 		}
 	}
 
-	for k, v := range maps {
-		if v > max {
-			max = v
-			id = k
+	return getMax()
+}
+
+// DayEightPartTWo of AoC '17
+func DayEightPartTwo() (id string, max int) {
+	elems := parseInput()
+	var tmpID string
+	var tmpMAX int
+
+	for _, x := range elems {
+		switch x.Condition {
+		case GT:
+			if maps[x.Dependent] > x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		case LT:
+			if maps[x.Dependent] < x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		case GTE:
+			if maps[x.Dependent] >= x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		case LTE:
+			if maps[x.Dependent] <= x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		case EQ:
+			if maps[x.Dependent] == x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		case NEQ:
+			if maps[x.Dependent] != x.Evaluator {
+				helper(x.Register, x.Value, x.Operation)
+			}
+		}
+
+		tmpID, tmpMAX = getMax()
+		if tmpMAX > max {
+			max = tmpMAX
+			id = tmpID
 		}
 	}
 
