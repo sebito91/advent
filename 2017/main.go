@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/sebito91/advent/2017/seven"
+	"github.com/sebito91/advent/2017/eight"
 )
 
 // 1122 produces a sum of 3 (1 + 2) because the first digit (1) matches the second digit and the third digit (2) matches the fourth digit.
@@ -15,13 +15,19 @@ import (
 func main() {
 	fmt.Printf("Running each of the 2017 Advent of Code challenges...\n")
 
-	fmt.Printf("*****************DAY SEVEN PART ONE*********************\n")
+	fmt.Printf("*****************DAY EIGHT PART ONE*********************\n")
 
-	fmt.Printf("codec in DaySevenPartOne: %s\n", seven.DaySevenPartOne())
+	id, val := eight.DayEightPartOne()
+	fmt.Printf("codec in DayEightPartOne: %s, %d\n", id, val)
 
-	fmt.Printf("*****************DAY SEVEN PART TWO*********************\n")
-
-	fmt.Printf("codec in DaySevenPartTwo: %d\n", seven.DaySevenPartTwo())
+	//
+	//	fmt.Printf("*****************DAY SEVEN PART ONE*********************\n")
+	//
+	//	fmt.Printf("codec in DaySevenPartOne: %s\n", seven.DaySevenPartOne())
+	//
+	//	fmt.Printf("*****************DAY SEVEN PART TWO*********************\n")
+	//
+	//	fmt.Printf("codec in DaySevenPartTwo: %d\n", seven.DaySevenPartTwo())
 
 	//	fmt.Printf("*****************DAY SIX PART TWO*********************\n")
 	//
